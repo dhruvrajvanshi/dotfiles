@@ -1,7 +1,7 @@
 call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'kien/ctrlp.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'Shougo/deoplete.nvim'
 Plug 'mhartington/nvim-typescript'

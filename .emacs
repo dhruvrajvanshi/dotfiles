@@ -17,6 +17,7 @@
 
     ;; typescript mode
     tide))
+
 (defun dhruv/packages-installed-p ()
   (loop for pkg in dhruv/packages
         when (not (package-installed-p pkg)) do (return nil)
@@ -59,7 +60,6 @@
   (interactive)
   (tide-setup)
   (flycheck-mode +1)
-  (setq flycheck-check-syntax-automatically '(save mode-enabled))
   (eldoc-mode +1)
   (tide-hl-identifier-mode +1)
   ;; company is an optional dependency. You have to
@@ -78,13 +78,15 @@
   ",p" 'projectile-find-file)
 
 (add-hook 'after-init-hook 'global-company-mode)
+
+;; Flycheck
 (global-flycheck-mode)
+(setq flycheck-check-syntax-automatically '(mode-enabled idle-change))
 
 (defun setup-tide-mode ()
   (interactive)
   (tide-setup)
   (flycheck-mode +1)
-  (setq flycheck-check-syntax-automatically '(save mode-enabled))
   (eldoc-mode +1)
   (tide-hl-identifier-mode +1)
   ;; company is an optional dependency. You have to
