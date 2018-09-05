@@ -79,7 +79,7 @@
 (evil-define-key nil evil-normal-state-map
   (kbd "C-p") 'projectile-find-file)
 (evil-define-key nil evil-normal-state-map
-  (kbd "C-S-p") 'projectile-find-file)
+  (kbd "C-S-p") 'smex)
 
 (add-hook 'after-init-hook 'global-company-mode)
 
