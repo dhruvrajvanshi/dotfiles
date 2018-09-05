@@ -15,6 +15,8 @@
     company
     projectile
 
+    smex
+
     ;; typescript mode
     tide))
 
@@ -75,13 +77,20 @@
 
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
 (evil-define-key nil evil-normal-state-map
-  ",p" 'projectile-find-file)
+  (kbd "C-p") 'projectile-find-file)
+(evil-define-key nil evil-normal-state-map
+  (kbd "C-S-p") 'projectile-find-file)
 
 (add-hook 'after-init-hook 'global-company-mode)
 
 ;; Flycheck
 (global-flycheck-mode)
 (setq flycheck-check-syntax-automatically '(mode-enabled idle-change))
+
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; This is your old M-x.
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 (defun setup-tide-mode ()
   (interactive)
@@ -113,7 +122,7 @@
     ("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" default)))
  '(package-selected-packages
    (quote
-    (tide projectile company flycheck powerline autopair spacemacs-theme rainbow-delimiters evil))))
+    (smex tide projectile company flycheck powerline autopair spacemacs-theme rainbow-delimiters evil))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
