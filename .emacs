@@ -40,7 +40,7 @@
 (setq inhibit-splash-screen t)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
-(linum-mode 1)
+(global-linum-mode 1)
 
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
