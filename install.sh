@@ -54,8 +54,7 @@ install_packages() {
 }
 
 set_up_zsh() {
-  ln -s $PWD/.zshrc $HOME/.zshrc
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  sh zshsetup.sh
 }
 
 set_up_bash() {
