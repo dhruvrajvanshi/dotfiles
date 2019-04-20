@@ -91,10 +91,6 @@ nmap <silent> <Leader><Leader> :noh<CR>
 nmap <silent> <Leader>gs :Gstatus<CR>
 nmap <silent> <Leader>gd :Gdiff<CR>
 
-" Move line up or down
-nnoremap <S-j> :m .+1<CR>==
-nnoremap <S-k> :m .-2<CR>==
-
 " Comment out line in normal mode
 autocmd FileType typescript,javascript,rust nmap <Leader>cc :s/^\(\s*\)/\1\/\/ /<CR> :noh <CR>
 autocmd FileType typescript,javascript,rust nmap <Leader>uc :s/^\(\s*\)\/\/\s*/\1/<CR> :noh <CR>
