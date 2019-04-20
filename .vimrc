@@ -12,6 +12,8 @@ Plug 'kien/ctrlp.vim'
 Plug 'Shougo/deoplete.nvim'
 Plug 'w0rp/ale'
 
+Plug 'tpope/vim-surround'
+
 Plug 'pangloss/vim-javascript'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'HerringtonDarkholme/yats.vim'
@@ -173,6 +175,3 @@ endfunction
 function! s:ShowType()
     if expand('%:e')
 endfunction
-
-
-

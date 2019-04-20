@@ -65,13 +65,8 @@ set_up_terminator() {
   sh terminator.sh
 }
 
-main() {
-  install_packages
-  set_up_vim
-  set_up_zsh
-  set_up_bash
-  set_up_terminator
-}
-
-main
-
+install_packages
+set_up_vim
+set_up_zsh
+set_up_bash
+set_up_terminator
