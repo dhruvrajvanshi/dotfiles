@@ -54,8 +54,12 @@ install_packages() {
 }
 
 set_up_zsh() {
-  ln -s $PWD/.zshrc ~/.zshrc
+  ln -s $PWD/.zshrc $HOME/.zshrc
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+}
+
+set_up_bash() {
+  ln -s $PWD/.bashrc $HOME/.bashrc
 }
 
 set_up_terminator() {
@@ -66,6 +70,7 @@ main() {
   install_packages
   set_up_vim
   set_up_zsh
+  set_up_bash
   set_up_terminator
 }
 
