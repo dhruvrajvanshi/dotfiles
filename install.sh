@@ -4,7 +4,7 @@ USER=$(whoami)
 HOME=/home/$USER
 DIR=$(pwd)
 
-PACKAGES="git neovim vim zsh python3-pip fonts-powerline terminator"
+PACKAGES="git neovim vim zsh python3-pip python-pip fonts-powerline terminator"
 
 set_up_vim() {
   sudo pip install neovim
@@ -37,6 +37,8 @@ set_up_vim() {
 
   sudo pip install --upgrade setuptools
   sudo pip install --upgrade neovim
+  sudo pip3 install --upgrade setuptools
+  sudo pip3 install --upgrade neovim
 }
 
 install_nvm() {

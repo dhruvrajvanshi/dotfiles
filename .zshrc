@@ -18,6 +18,8 @@ antigen use oh-my-zsh
 antigen theme denysdovhan/spaceship-prompt
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle git
+antigen bundle zsh-users/zsh-completions
+antigen bundle lukechilds/zsh-better-npm-completion
 
 antigen apply
 
