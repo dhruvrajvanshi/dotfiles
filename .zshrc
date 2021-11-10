@@ -16,3 +16,5 @@ export PS1="%F{green}%K{black}%B
 %~
 %F{blue}› %f%b"
 
+export EDITOR=vim
+
