@@ -30,4 +30,9 @@ if [[ -f ~/.cargo/env ]]; then
     source ~/.cargo/env
 fi
 
+if [[ -d ~/.jenv ]]; then
+    export PATH="$HOME/.jenv/bin:$PATH"
+    eval "$(jenv init -)"
+fi
+
 
