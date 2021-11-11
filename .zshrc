@@ -9,7 +9,7 @@ HISTFILE=~/.zsh_history
 HISTSIZE=999999999
 SAVEHIST=$HISTSIZE
 
-export PS1="%F{green}%K{black}%B
+export PS1="%F{green}%B
 %~
 %F{blue}› %f%b"
 
@@ -20,6 +20,9 @@ export PATH="$HOME/dotfiles/bin:$PATH"
 
 alias tf=terraform
 
-source ~/.cargo/env
+
+if [[ -f ~/.cargo/env ]]; then
+    source ~/.cargo/env
+fi
 
 
