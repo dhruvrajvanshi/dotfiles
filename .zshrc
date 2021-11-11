@@ -13,7 +13,11 @@ export PS1="%F{green}%B
 %~
 %F{blue}› %f%b"
 
-export EDITOR=vim
+if which nvim; then
+    export EDITOR=nvim
+else
+    export EDITOR=vim
+fi
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/dotfiles/bin:$PATH"
