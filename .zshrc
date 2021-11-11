@@ -9,9 +9,10 @@ HISTFILE=~/.zsh_history
 HISTSIZE=999999999
 SAVEHIST=$HISTSIZE
 
-export PS1="%F{green}%B
+export PS1="%F{blue}%B
 %~
-%F{blue}› %f%b"
+%F{%(?.green.red)}› %f%b"
+
 
 if which nvim; then
     export EDITOR=nvim
