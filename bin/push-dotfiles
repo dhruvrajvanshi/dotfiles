@@ -1,0 +1,9 @@
+#!/bin/sh
+set -e
+
+cd ~/dotfiles
+
+git add .
+git commit
+
+cd -

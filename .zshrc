@@ -16,15 +16,10 @@ export PS1="%F{green}%K{black}%B
 export EDITOR=vim
 
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/dotfiles/bin:$PATH"
 
 alias tf=terraform
 
 source ~/.cargo/env
 
-export function push_dotfiles
-    cd ~/dotfiles
-    git add .
-    git commit
-    git push
-    cd -
-end
+
