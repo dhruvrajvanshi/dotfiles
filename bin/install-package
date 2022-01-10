@@ -1,0 +1,11 @@
+#!/bin/sh
+set -e
+
+if command -v dnf; then
+  sudo dnf install -y "$@"
+elif command -v apt; then
+else
+  echo "No package manager found"
+  exit 1
+fi
+
