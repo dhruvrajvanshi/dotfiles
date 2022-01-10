@@ -14,7 +14,7 @@ export PS1="%F{blue}%B
 %F{%(?.green.red)}› %f%b"
 
 
-if which nvim > /dev/null; then
+if command -v nvim; then
     export EDITOR=nvim
 else
     export EDITOR=vim
