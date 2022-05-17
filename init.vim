@@ -16,3 +16,21 @@ set number
 set scrolloff=8
 set hidden
 
+call plug#begin()
+Plug 'morhetz/gruvbox'
+Plug 'preservim/nerdtree'
+Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+call plug#end()
+
+colorscheme gruvbox
+
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
+map <C-N> :FZF<CR>
+map! <C-N> :FZF<CR>
+
+
