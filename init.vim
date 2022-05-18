@@ -25,6 +25,12 @@ nnoremap <C-l> <C-w>l
 
 imap jj <Esc>
 
+
+" Skip loading plugged extensions when
+" plugged is not installed, or if we're
+" running inside vs code
+if !exists('g:vscode') && exists(':PlugInstall')
+
 call plug#begin()
 Plug 'morhetz/gruvbox'
 Plug 'preservim/nerdtree'
@@ -188,3 +194,5 @@ end
     capabilities = capabilities
   }
 EOF
+
+endif
