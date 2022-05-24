@@ -25,6 +25,10 @@ export PATH="$HOME/dotfiles/bin:$PATH"
 
 alias tf=terraform
 
+if command -v ag; then
+    export FZF_DEFAULT_COMMAND='ag -l --hidden -g ""'
+fi
+
 
 if [[ -f ~/.cargo/env ]]; then
     source ~/.cargo/env
