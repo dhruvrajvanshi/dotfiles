@@ -26,10 +26,9 @@ nnoremap <C-l> <C-w>l
 imap jj <Esc>
 
 
-" Skip loading plugged extensions when
-" plugged is not installed, or if we're
-" running inside vs code
-if !exists('g:vscode') && exists(':PlugInstall')
+" Skip loading plugged extensions
+" if we're running inside vs code
+if !exists('g:vscode')
 
 call plug#begin()
 Plug 'morhetz/gruvbox'
