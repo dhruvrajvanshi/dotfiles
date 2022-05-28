@@ -34,6 +34,10 @@ if [[ -f ~/.cargo/env ]]; then
     source ~/.cargo/env
 fi
 
+if [[ -f ~/local.zshrc ]]; then
+    source ~/local.zshrc
+fi
+
 if [[ -d ~/.jenv ]]; then
     export PATH="$HOME/.jenv/bin:$PATH"
     eval "$(jenv init -)"
