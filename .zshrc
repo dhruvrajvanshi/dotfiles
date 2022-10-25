@@ -56,5 +56,7 @@ if [[ -d ~/.pyenv ]]; then
     eval "$(pyenv init -)"
 fi
 
-export PATH="$HOME/.poetry/bin:$PATH"
+if [[ -d ~/.poetry ]]; then
+    export PATH="$HOME/.poetry/bin:$PATH"
+fi
 
