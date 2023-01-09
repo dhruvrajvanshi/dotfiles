@@ -15,6 +15,6 @@ if [[ ! -L $HOME/.zshrc ]]; then
   ln -s $HOME/dotfiles/.zshrc $HOME/.zshrc
 fi
 
-if [[ ! -L $HOME/.config/nvim/init.vim ]]; then
-  ln -s $HOME/dotfiles/init.vim $HOME/.config/nvim/init.vim
+if [[ ! -L $HOME/.config/nvim/init.lua ]]; then
+  ln -s $HOME/dotfiles/init.lua $HOME/.config/nvim/init.lua
 fi
