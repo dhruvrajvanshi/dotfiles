@@ -30,6 +30,10 @@ require('packer').startup(function(use)
       {'hrsh7th/cmp-buffer'},       -- Optional
       {'hrsh7th/cmp-path'},         -- Optional
       {'hrsh7th/cmp-nvim-lua'},     -- Optional
+
+      -- Snippets
+      {'L3MON4D3/LuaSnip'},             -- Required
+      {'rafamadriz/friendly-snippets'}, -- Optional
     }
   }
 end)
@@ -66,6 +70,15 @@ local lsp = require('lsp-zero').preset({
   manage_nvim_cmp = true,
   suggest_lsp_servers = true,
 })
+
+vim.keymap.set('n', 'gh', vim.lsp.buf.hover)
+
+
+
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
+  vim.lsp.handlers.hover,
+  {border = 'rounded'}
+)
 
 -- (Optional) Configure lua language server for neovim
 lsp.nvim_workspace()
