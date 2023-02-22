@@ -13,6 +13,7 @@ require('packer').startup(function(use)
   -- Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   use({ 'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'} })
 
+  use 'airblade/vim-gitgutter'
 end)
 
 vim.g.mapleader = ' '
