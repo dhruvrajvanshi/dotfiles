@@ -22,6 +22,8 @@ vim.cmd.colorscheme('gruvbox')
 
 vim.wo.number = true
 vim.wo.relativenumber = true
+vim.bo.tabstop = 2
+vim.bo.shiftwidth = vim.bo.tabstop
 
 local telescope = require('telescope.builtin')
 
