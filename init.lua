@@ -20,6 +20,9 @@ vim.g.mapleader = ' '
 
 vim.cmd.colorscheme('gruvbox')
 
+vim.wo.number = true
+vim.wo.relativenumber = true
+
 local telescope = require('telescope.builtin')
 
 vim.keymap.set('n', '<leader>ff', telescope.find_files, {})
