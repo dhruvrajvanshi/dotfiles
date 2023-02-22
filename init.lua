@@ -14,6 +14,24 @@ require('packer').startup(function(use)
   use({ 'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'} })
 
   use 'airblade/vim-gitgutter'
+
+  use {
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v1.x',
+    requires = {
+      -- LSP Support
+      {'neovim/nvim-lspconfig'},             -- Required
+      {'williamboman/mason.nvim'},           -- Optional
+      {'williamboman/mason-lspconfig.nvim'}, -- Optional
+
+      -- Autocompletion
+      {'hrsh7th/nvim-cmp'},         -- Required
+      {'hrsh7th/cmp-nvim-lsp'},     -- Required
+      {'hrsh7th/cmp-buffer'},       -- Optional
+      {'hrsh7th/cmp-path'},         -- Optional
+      {'hrsh7th/cmp-nvim-lua'},     -- Optional
+    }
+  }
 end)
 
 vim.g.mapleader = ' '
@@ -41,3 +59,15 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
   },
 }
+
+local lsp = require('lsp-zero').preset({
+  name = 'minimal',
+  set_lsp_keymaps = true,
+  manage_nvim_cmp = true,
+  suggest_lsp_servers = true,
+})
+
+-- (Optional) Configure lua language server for neovim
+lsp.nvim_workspace()
+lsp.setup()
+
