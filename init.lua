@@ -15,8 +15,6 @@ require('packer').startup(function(use)
   -- Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   use({ 'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' } })
 
-  use 'airblade/vim-gitgutter'
-
   use {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v1.x',
@@ -46,6 +44,8 @@ require('packer').startup(function(use)
     },
     tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
+
+  use { 'lewis6991/gitsigns.nvim' }
 end)
 
 vim.g.mapleader = ' '
