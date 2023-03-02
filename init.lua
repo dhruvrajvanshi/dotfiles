@@ -1,4 +1,5 @@
-
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
@@ -37,6 +38,14 @@ require('packer').startup(function(use)
       {'rafamadriz/friendly-snippets'}, -- Optional
     }
   }
+
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons', -- optional, for file icons
+    },
+    tag = 'nightly' -- optional, updated every week. (see issue #1193)
+  }
 end)
 
 vim.g.mapleader = ' '
@@ -52,10 +61,15 @@ vim.bo.expandtab = true
 
 vim.o.scrolloff = 12
 
+vim.opt.termguicolors = true
+
+require("nvim-tree").setup()
+
 local telescope = require('telescope.builtin')
 
 vim.keymap.set('n', '<leader>ff', telescope.find_files, {})
 vim.keymap.set('n', '<C-S-N>', telescope.git_files, {})
+vim.keymap.set('n', '<C-b>', ':NvimTreeToggle<CR>')
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { "c", "lua", "vim", "help" },
