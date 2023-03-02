@@ -50,6 +50,8 @@ vim.bo.tabstop = 2
 vim.bo.shiftwidth = 2
 vim.bo.expandtab = true
 
+vim.o.scrolloff = 12
+
 local telescope = require('telescope.builtin')
 
 vim.keymap.set('n', '<leader>ff', telescope.find_files, {})
