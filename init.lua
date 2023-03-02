@@ -3,6 +3,7 @@ require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use 'morhetz/gruvbox'
+  use 'loctvl842/monokai-pro.nvim'
   use 'tpope/vim-commentary'
 
   use {
@@ -40,7 +41,7 @@ end)
 
 vim.g.mapleader = ' '
 
-vim.cmd.colorscheme('gruvbox')
+vim.cmd.colorscheme('monokai-pro')
 
 vim.wo.number = true
 vim.wo.relativenumber = true
