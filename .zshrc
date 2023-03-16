@@ -24,6 +24,9 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/dotfiles/bin:$PATH"
 
 alias tf=terraform
+alias ..='cd ..'
+alias ...='cd ...'
+alias l='ls -l'
 
 if command -v ag; then
     export FZF_DEFAULT_COMMAND='ag -l --hidden -g ""'
@@ -60,3 +63,11 @@ if [[ -d ~/.poetry ]]; then
     export PATH="$HOME/.poetry/bin:$PATH"
 fi
 
+
+# pnpm
+export PNPM_HOME="/Users/dhruv.rajvanshi@scalable.capital/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
