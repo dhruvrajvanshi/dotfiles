@@ -7,10 +7,8 @@ require('packer').startup(function(use)
   use 'loctvl842/monokai-pro.nvim'
   use 'tpope/vim-commentary'
 
-  use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.1',
-    requires = { { 'nvim-lua/plenary.nvim' } }
-  }
+  use({ 'junegunn/fzf', { run = ':call fzf#install()' } })
+  use 'junegunn/fzf.vim'
 
   -- Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   use({ 'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' } })
@@ -35,6 +33,10 @@ require('packer').startup(function(use)
       { 'L3MON4D3/LuaSnip' }, -- Required
       { 'rafamadriz/friendly-snippets' }, -- Optional
     }
+  }
+  use {
+    "folke/trouble.nvim",
+    requires = { "nvim-tree/nvim-web-devicons" },
   }
 
   use {
@@ -65,11 +67,10 @@ vim.opt.termguicolors = true
 
 require("nvim-tree").setup()
 
-local telescope = require('telescope.builtin')
-
-vim.keymap.set('n', '<leader>ff', telescope.find_files, {})
-vim.keymap.set('n', '<C-S-N>', telescope.git_files, {})
-vim.keymap.set('n', '<C-b>', ':NvimTreeToggle<CR>')
+vim.keymap.set('n', '<leader>ff', ':Files<CR>', {})
+vim.keymap.set('n', '<C-S-N>', ':GFiles<CR>', {})
+vim.keymap.set('n', '<C-S-T>', ':NvimTreeToggle<CR>')
+vim.keymap.set('n', '<C-S-F>', ':Rg<CR>')
 
 require 'nvim-treesitter.configs'.setup {
   ensure_installed = { "c", "lua", "vim", "help" },
@@ -91,7 +92,7 @@ local lsp = require('lsp-zero').preset({
 })
 
 vim.keymap.set('n', 'gh', vim.lsp.buf.hover)
-vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end)
+vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end)
 
 vim.diagnostic.config({ virtual_text = true })
 
