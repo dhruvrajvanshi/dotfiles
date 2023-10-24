@@ -74,6 +74,8 @@ vim.keymap.set('n', '<C-b>', ':NvimTreeToggle<CR>')
 require 'nvim-treesitter.configs'.setup {
   ensure_installed = { "c", "lua", "vim", "help" },
 
+  ignore_install = { 'help' },
+
   auto_install = true,
 
   highlight = {
