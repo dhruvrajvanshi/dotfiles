@@ -45,12 +45,28 @@ require('packer').startup(function(use)
 
   use { 'lewis6991/gitsigns.nvim' }
 
+  use {
+    "NeogitOrg/neogit",
+    requires = {
+      "nvim-lua/plenary.nvim",         -- required
+      "nvim-telescope/telescope.nvim", -- optional
+      "sindrets/diffview.nvim",        -- optional
+      "ibhagwan/fzf-lua",              -- optional
+    },
+    config = function()
+      require("neogit").setup()
+    end,
+  }
+  use 'airblade/vim-gitgutter'
+
   use({
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
     config = function()
       require("lsp_lines").setup()
     end,
   })
+
+  use 'beauwilliams/statusline.lua'
 end)
 
 vim.diagnostic.config({
