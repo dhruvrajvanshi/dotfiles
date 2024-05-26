@@ -35,14 +35,6 @@ require('packer').startup(function(use)
     }
   }
 
-  use {
-    'nvim-tree/nvim-tree.lua',
-    requires = {
-      'nvim-tree/nvim-web-devicons', -- optional, for file icons
-    },
-    tag = 'nightly'                  -- optional, updated every week. (see issue #1193)
-  }
-
   use { 'lewis6991/gitsigns.nvim' }
 
   use {
@@ -89,11 +81,8 @@ vim.o.scrolloff = 12
 
 vim.opt.termguicolors = true
 
-require("nvim-tree").setup()
-
-vim.keymap.set('n', '<leader>ff', ':Files<CR>', {})
+vim.keymap.set('n', '<leader>f', ':Files<CR>', {})
 vim.keymap.set('n', '<C-S-N>', ':GFiles<CR>', {})
-vim.keymap.set('n', '<C-S-T>', ':NvimTreeToggle<CR>')
 vim.keymap.set('n', '<C-S-F>', ':Rg<CR>')
 
 require 'nvim-treesitter.configs'.setup {
