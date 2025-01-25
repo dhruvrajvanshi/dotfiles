@@ -54,10 +54,7 @@ vim.keymap.set('n', '<C-S-N>', ':GFiles<CR>', {})
 vim.keymap.set('n', '<C-S-F>', ':Rg<CR>')
 
 require 'nvim-treesitter.configs'.setup {
-  ensure_installed = { "c", "lua", "vim", "help" },
-
-  ignore_install = { 'help' },
-
+  ensure_installed = { "c", "lua", "vim" },
   auto_install = true,
 
   highlight = {
