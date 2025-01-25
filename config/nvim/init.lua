@@ -23,7 +23,11 @@ require("lazy").setup({
 
   { "github/copilot.vim" },
 
-  { "williamboman/mason.nvim" },
+  {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+  }
 })
 
 vim.diagnostic.config({
@@ -63,5 +67,10 @@ require 'nvim-treesitter.configs'.setup {
 
 -- https://neovim.io/doc/user/diagnostic.html
 vim.diagnostic.config({ virtual_text = true })
+
+require("mason").setup()
+require("mason-lspconfig").setup()
+
+require'lspconfig'.ts_ls.setup {}
 
 
