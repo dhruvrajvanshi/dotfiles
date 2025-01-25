@@ -62,6 +62,11 @@ require 'nvim-treesitter.configs'.setup {
 }
 
 -- https://neovim.io/doc/user/diagnostic.html
-vim.diagnostic.config({ virtual_text = true })
+vim.diagnostic.config({
+  -- Show the diagnostic message on the line where the error is
+  -- Without this, the diagnostic will be underlined, but there's
+  -- no obvious way to read the message
+  virtual_text = false,
+})
 
 require "lsp"
