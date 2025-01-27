@@ -5,17 +5,6 @@ require("mason-lspconfig").setup()
 require'lspconfig'.ts_ls.setup {}
 require'lspconfig'.rust_analyzer.setup {}
 
-require"cmp".setup {
-  sources = {
-    { name = "nvim_lsp" },
-  },
-  view = {
-    -- The native neovim menu has builtin key bindings for navigating between
-    -- entries without extra setup.
-    entries = "native"
-  }
-}
-
 vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(args)
       local client = vim.lsp.get_client_by_id(args.data.client_id)
