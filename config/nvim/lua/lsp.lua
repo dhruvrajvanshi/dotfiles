@@ -8,6 +8,11 @@ require'lspconfig'.rust_analyzer.setup {}
 require"cmp".setup {
   sources = {
     { name = "nvim_lsp" },
+  },
+  view = {
+    -- The native neovim menu has builtin key bindings for navigating between
+    -- entries without extra setup.
+    entries = "native"
   }
 }
 
