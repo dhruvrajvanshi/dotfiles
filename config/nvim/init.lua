@@ -75,6 +75,8 @@ require("lazy").setup({
 	},
 })
 
+vim.opt.shiftwidth = 2
+
 vim.diagnostic.config({
 	virtual_text = false,
 })
@@ -133,4 +135,4 @@ autocmd("BufWritePost", {
 	group = "__formatter__",
 	command = ":FormatWrite",
 })
-require"diagflow".setup()
+require("diagflow").setup()
