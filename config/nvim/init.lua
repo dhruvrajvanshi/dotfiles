@@ -28,6 +28,7 @@ require("lazy").setup({
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 		"neovim/nvim-lspconfig",
+		"dgagn/diagflow.nvim",
 		{
 			"saghen/blink.cmp",
 			-- optional: provides snippets for the snippet source
@@ -132,3 +133,4 @@ autocmd("BufWritePost", {
 	group = "__formatter__",
 	command = ":FormatWrite",
 })
+require"diagflow".setup()
