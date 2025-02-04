@@ -3,11 +3,7 @@ require("mason").setup()
 require("mason-lspconfig").setup()
 
 require'lspconfig'.ts_ls.setup {}
-require'lspconfig'.prettier.setup {
-  settings = {
-    filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "css", "scss", "json", "graphql", "markdown", "vue" }
-  }
-}
+
 require'lspconfig'.rust_analyzer.setup {}
 
 vim.api.nvim_create_autocmd('LspAttach', {
