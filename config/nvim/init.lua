@@ -12,6 +12,8 @@ require("lazy").setup({
 	-- Comment a line using gcc, or any object using gc<motion>, e.g. gci{
 	{ "tpope/vim-commentary" },
 	{ "tpope/vim-surround" },
+	-- Repeat action (.) doesn't work with vim-surround. This fixes that
+	{ "tpope/vim-repeat" },
 
 	-- Provides fuzzy search; Set to C-Shift-N
 	{ "junegunn/fzf", build = ":call fzf#install()" },
