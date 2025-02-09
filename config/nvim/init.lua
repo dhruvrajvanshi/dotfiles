@@ -23,6 +23,18 @@ require("lazy").setup({
 	{ "junegunn/fzf", build = ":call fzf#install()" },
 	{ "junegunn/fzf.vim" },
 
+	{
+		"folke/snacks.nvim",
+		---@type snacks.Config
+		opts = {
+			notifier = {
+				-- your notifier configuration comes here
+				-- or leave it empty to use the default settings
+				-- refer to the configuration section below
+			},
+		},
+	},
+
 	-- Shows the :command line in a floating window
 	{
 		"VonHeikemen/fine-cmdline.nvim",
