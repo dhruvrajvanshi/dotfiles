@@ -15,6 +15,9 @@ require("lazy").setup({
 	-- Repeat action (.) doesn't work with vim-surround. This fixes that
 	{ "tpope/vim-repeat" },
 
+	-- Adds :GBrowse command for interacting with github
+	{ "tpope/vim-rhubarb" },
+
 	-- Provides fuzzy search; Set to C-Shift-N
 	{ "junegunn/fzf", build = ":call fzf#install()" },
 	{ "junegunn/fzf.vim" },
