@@ -4,6 +4,7 @@ require("lazy").setup({
 	-- Colorschemes
 	{ "morhetz/gruvbox" },
 	{ "loctvl842/monokai-pro.nvim" },
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
 	-- Provides syntax highlighting for various languages; Set to auto install when a buffer
 	-- is opened
@@ -117,7 +118,7 @@ vim.diagnostic.config({
 
 vim.g.mapleader = " "
 
-vim.cmd.colorscheme("monokai-pro")
+vim.cmd.colorscheme("catppuccin-frappe")
 
 vim.wo.number = true
 vim.wo.relativenumber = true
