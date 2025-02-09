@@ -19,6 +19,16 @@ require("lazy").setup({
 	-- Show git changes in the gutter
 	{ "airblade/vim-gitgutter" },
 	{ "tpope/vim-fugitive" },
+	{
+		"NeogitOrg/neogit",
+		dependencies = {
+			"nvim-lua/plenary.nvim", -- required
+			"sindrets/diffview.nvim", -- optional - Diff integration
+
+			"nvim-telescope/telescope.nvim", -- optional
+		},
+		config = true,
+	},
 	{ "beauwilliams/statusline.lua" },
 
 	{ "github/copilot.vim" },
