@@ -70,7 +70,29 @@ require("lazy").setup({
 
 	{ "github/copilot.vim" },
 
-	{ "mhartington/formatter.nvim" },
+	{
+		"mhartington/formatter.nvim",
+		init = function()
+			require("formatter").setup({
+				filetype = {
+					javascript = {
+						require("formatter.filetypes.javascript").prettier,
+					},
+					lua = {
+						require("formatter.filetypes.lua").stylua,
+					},
+				},
+			})
+			vim.keymap.set("n", "<leader>pp", ":Format<CR>")
+			local augroup = vim.api.nvim_create_augroup
+			local autocmd = vim.api.nvim_create_autocmd
+			augroup("__formatter__", { clear = true })
+			autocmd("BufWritePost", {
+				group = "__formatter__",
+				command = ":FormatWrite",
+			})
+		end,
+	},
 	{
 		-- Shows error messages from LSP in a floating window
 		"dgagn/diagflow.nvim",
@@ -206,21 +228,3 @@ vim.diagnostic.config({
 })
 
 require("lsp")
-require("formatter").setup({
-	filetype = {
-		javascript = {
-			require("formatter.filetypes.javascript").prettier,
-		},
-		lua = {
-			require("formatter.filetypes.lua").stylua,
-		},
-	},
-})
-vim.keymap.set("n", "<leader>pp", ":Format<CR>")
-local augroup = vim.api.nvim_create_augroup
-local autocmd = vim.api.nvim_create_autocmd
-augroup("__formatter__", { clear = true })
-autocmd("BufWritePost", {
-	group = "__formatter__",
-	command = ":FormatWrite",
-})
