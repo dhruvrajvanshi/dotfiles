@@ -34,7 +34,12 @@ require("lazy").setup({
 	},
 
 	-- Show git changes in the gutter
-	{ "airblade/vim-gitgutter" },
+	{
+		"lewis6991/gitsigns.nvim",
+		init = function()
+			require("gitsigns").setup()
+		end,
+	},
 	{ "tpope/vim-fugitive" },
 	{
 		"NeogitOrg/neogit",
