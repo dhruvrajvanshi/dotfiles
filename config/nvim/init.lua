@@ -22,6 +22,17 @@ require("lazy").setup({
 	{ "junegunn/fzf", build = ":call fzf#install()" },
 	{ "junegunn/fzf.vim" },
 
+	-- Shows the :command line in a floating window
+	{
+		"VonHeikemen/fine-cmdline.nvim",
+		dependencies = {
+			{ "MunifTanjim/nui.nvim" },
+		},
+		init = function()
+			vim.api.nvim_set_keymap("n", ":", "<cmd>FineCmdline<CR>", { noremap = true })
+		end,
+	},
+
 	-- Show git changes in the gutter
 	{ "airblade/vim-gitgutter" },
 	{ "tpope/vim-fugitive" },
