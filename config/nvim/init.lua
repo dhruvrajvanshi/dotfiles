@@ -18,6 +18,7 @@ require("lazy").setup({
 
 	-- Adds :GBrowse command for interacting with github
 	{ "tpope/vim-rhubarb" },
+	{ "folke/which-key.nvim" },
 
 	-- Provides fuzzy search; Set to C-Shift-N
 	{ "junegunn/fzf", build = ":call fzf#install()" },
