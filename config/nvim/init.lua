@@ -79,6 +79,15 @@ require("lazy").setup({
 					javascript = {
 						require("formatter.filetypes.javascript").prettier,
 					},
+					javascriptreact = {
+						require("formatter.filetypes.javascript").prettier,
+					},
+					typescript = {
+						require("formatter.filetypes.javascript").prettier,
+					},
+					typescriptreact = {
+						require("formatter.filetypes.javascript").prettier,
+					},
 					lua = {
 						require("formatter.filetypes.lua").stylua,
 					},
