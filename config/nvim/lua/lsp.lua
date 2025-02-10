@@ -26,15 +26,5 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		if client.supports_method("textDocument/implementation") then
 			vim.keymap.set("n", "gri", vim.lsp.buf.implementation)
 		end
-
-		if client.supports_method("textDocument/formatting") and client.name ~= "ts_ls" then
-			-- Format the current buffer on save
-			vim.api.nvim_create_autocmd("BufWritePre", {
-				buffer = args.buf,
-				callback = function()
-					vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
-				end,
-			})
-		end
 	end,
 })
