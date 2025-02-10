@@ -67,7 +67,13 @@ require("lazy").setup({
 		config = true,
 	},
 
-	{ "beauwilliams/statusline.lua" },
+	{
+		"nvim-lualine/lualine.nvim",
+		init = function()
+			require("lualine").setup()
+		end,
+	},
+	{ "kyazdani42/nvim-web-devicons" },
 
 	{ "github/copilot.vim" },
 
