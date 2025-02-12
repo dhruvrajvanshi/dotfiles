@@ -97,6 +97,9 @@ require("lazy").setup({
 					lua = {
 						require("formatter.filetypes.lua").stylua,
 					},
+					rust = {
+						require("formatter.filetypes.rust").rustfmt,
+					},
 				},
 			})
 			vim.keymap.set("n", "<leader>pp", ":Format<CR>")
