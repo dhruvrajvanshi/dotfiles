@@ -18,6 +18,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		if client.supports_method("textDocument/definition") then
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 			vim.keymap.set("n", "gh", vim.lsp.buf.hover)
+			vim.keymap.set("n", "geh", vim.diagnostic.open_float)
 		end
 
 		if client.supports_method("textDocument/references") then
