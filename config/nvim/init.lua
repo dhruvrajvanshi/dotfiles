@@ -100,6 +100,9 @@ require("lazy").setup({
 					rust = {
 						require("formatter.filetypes.rust").rustfmt,
 					},
+					toml = {
+						require("formatter.filetypes.toml").taplo,
+					},
 				},
 			})
 			vim.keymap.set("n", "<leader>pp", ":Format<CR>")
