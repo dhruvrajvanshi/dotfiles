@@ -70,16 +70,7 @@ require("lazy").setup({
 	{
 		"nvim-lualine/lualine.nvim",
 		init = function()
-			require("lualine").setup({
-				sections = {
-					lualine_a = nil,
-					lualine_b = { "branch" },
-					lualine_c = { "filename" },
-					lualine_x = { "encoding", "fileformat", "filetype" },
-					lualine_y = { "diagnostics" },
-					lualine_z = { "location" },
-				},
-			})
+			require("lualine").setup()
 		end,
 	},
 	{ "kyazdani42/nvim-web-devicons" },
