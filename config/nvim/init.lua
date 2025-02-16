@@ -20,6 +20,11 @@ vim.cmd.colorscheme("catppuccin-frappe")
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", {})
 vim.keymap.set("n", "<leader>x", "<cmd>.lua<CR>", { desc = "Execute the current line" })
 
+vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to window below" })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to window above" })
+vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to window left" })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to window right" })
+
 -- https://neovim.io/doc/user/diagnostic.html
 vim.diagnostic.config({
 	-- Show the diagnostic message on the line where the error is
