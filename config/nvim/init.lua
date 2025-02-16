@@ -9,6 +9,7 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.scrolloff = 12
 vim.opt.termguicolors = true
+vim.opt.swapfile = false
 
 vim.diagnostic.config({
 	virtual_text = false,
