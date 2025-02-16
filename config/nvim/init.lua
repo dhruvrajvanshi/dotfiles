@@ -19,6 +19,8 @@ vim.keymap.set("n", "<leader>ff", ":Files<CR>", {})
 vim.keymap.set("n", "<C-S-N>", ":GFiles<CR>", {})
 vim.keymap.set("n", "<C-S-F>", ":Rg<CR>")
 
+vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", {})
+
 -- https://neovim.io/doc/user/diagnostic.html
 vim.diagnostic.config({
 	-- Show the diagnostic message on the line where the error is
