@@ -8,7 +8,7 @@ vim.opt.relativenumber = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
-vim.o.scrolloff = 12
+vim.opt.scrolloff = 12
 vim.opt.termguicolors = true
 
 vim.diagnostic.config({
@@ -27,5 +27,3 @@ vim.diagnostic.config({
 	-- no obvious way to read the message
 	virtual_text = false,
 })
-
-require("lsp")
