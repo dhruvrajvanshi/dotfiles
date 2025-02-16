@@ -1,19 +1,11 @@
 return {
-	{
-		"williamboman/mason.nvim",
-		init = function()
-			require("mason").setup()
-		end,
-	},
-	{
-		"williamboman/mason-lspconfig.nvim",
-		init = function()
-			require("mason-lspconfig").setup()
-		end,
-	},
+	"williamboman/mason.nvim",
+	"williamboman/mason-lspconfig.nvim",
 	{
 		"neovim/nvim-lspconfig",
 		init = function()
+			require("mason").setup()
+			require("mason-lspconfig").setup()
 			local lspconfig = require("lspconfig")
 			lspconfig.ts_ls.setup({})
 			lspconfig.eslint.setup({})
