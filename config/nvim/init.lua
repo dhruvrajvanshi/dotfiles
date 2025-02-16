@@ -17,6 +17,7 @@ vim.diagnostic.config({
 vim.cmd.colorscheme("catppuccin-frappe")
 
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", {})
+vim.keymap.set("n", "<leader>x", "<cmd>.lua<CR>", { desc = "Execute the current line" })
 
 -- https://neovim.io/doc/user/diagnostic.html
 vim.diagnostic.config({
