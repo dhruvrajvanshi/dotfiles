@@ -15,8 +15,7 @@ vim.diagnostic.config({
 })
 
 vim.cmd.colorscheme("catppuccin-frappe")
-vim.keymap.set("n", "<leader>ff", ":Files<CR>", {})
-vim.keymap.set("n", "<C-S-N>", ":GFiles<CR>", {})
+
 vim.keymap.set("n", "<C-S-F>", ":Rg<CR>")
 
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", {})

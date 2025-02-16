@@ -67,7 +67,14 @@ return {
 	{ "folke/which-key.nvim" },
 
 	-- Provides fuzzy search; Set to C-Shift-N
-	{ "junegunn/fzf", build = ":call fzf#install()" },
+	{
+		"junegunn/fzf",
+		build = ":call fzf#install()",
+		init = function()
+			vim.keymap.set("n", "<leader>ff", ":Files<CR>", {})
+			vim.keymap.set("n", "<C-S-N>", ":GFiles<CR>", {})
+		end,
+	},
 	{ "junegunn/fzf.vim" },
 
 	{
