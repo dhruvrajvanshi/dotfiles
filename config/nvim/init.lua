@@ -3,24 +3,19 @@ require("bootstrap-lazy")
 require("lazy").setup("plugins")
 
 vim.opt.shiftwidth = 2
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.o.scrolloff = 12
+vim.opt.termguicolors = true
 
 vim.diagnostic.config({
 	virtual_text = false,
 })
 
 vim.cmd.colorscheme("catppuccin-frappe")
-
-vim.wo.number = true
-vim.wo.relativenumber = true
-
-vim.bo.tabstop = 2
-vim.bo.shiftwidth = 2
-vim.bo.expandtab = true
-
-vim.o.scrolloff = 12
-
-vim.opt.termguicolors = true
-
 vim.keymap.set("n", "<leader>ff", ":Files<CR>", {})
 vim.keymap.set("n", "<C-S-N>", ":GFiles<CR>", {})
 vim.keymap.set("n", "<C-S-F>", ":Rg<CR>")
