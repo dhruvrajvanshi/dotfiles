@@ -1,0 +1,219 @@
+return {
+	{ "morhetz/gruvbox" },
+	{ "loctvl842/monokai-pro.nvim" },
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+	--	-- Provides syntax highlighting for various languages; Set to auto install when a buffer
+	--	-- is opened
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+		init = function()
+			---@diagnostic disable-next-line
+			require("nvim-treesitter.configs").setup({
+				auto_install = true,
+
+				highlight = {
+					enable = true,
+				},
+				textobjects = {
+					select = {
+						enable = true,
+
+						-- Automatically jump forward to textobj, similar to targets.vim
+						lookahead = true,
+
+						keymaps = {
+							-- You can use the capture groups defined in textobjects.scm
+							["af"] = "@function.outer",
+							["if"] = "@function.inner",
+							["ac"] = "@class.outer",
+							-- You can optionally set descriptions to the mappings (used in the desc parameter of
+							-- nvim_buf_set_keymap) which plugins like which-key display
+							["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+							-- You can also use captures from other query groups like `locals.scm`
+							["as"] = { query = "@local.scope", query_group = "locals", desc = "Select language scope" },
+						},
+					},
+					move = {
+						enable = true,
+						set_jumps = true, -- whether to set jumps in the jumplist
+						goto_next_start = {
+							["]f"] = "@function.outer",
+						},
+						goto_next_end = {
+							["]F"] = "@function.outer",
+						},
+						goto_previous_start = {
+							["[f"] = "@function.outer",
+						},
+						goto_previous_end = {
+							["[F"] = "@function.outer",
+						},
+					},
+				},
+			})
+		end,
+	},
+	{ "nvim-treesitter/nvim-treesitter-textobjects" },
+
+	-- Comment a line using gcc, or any object using gc<motion>, e.g. gci{
+	{ "tpope/vim-commentary" },
+	{ "tpope/vim-surround" },
+	-- Repeat action (.) doesn't work with vim-surround. This fixes that
+	{ "tpope/vim-repeat" },
+
+	-- Adds :GBrowse command for interacting with github
+	{ "tpope/vim-rhubarb" },
+	{ "folke/which-key.nvim" },
+
+	-- Provides fuzzy search; Set to C-Shift-N
+	{ "junegunn/fzf", build = ":call fzf#install()" },
+	{ "junegunn/fzf.vim" },
+
+	{
+		"folke/snacks.nvim",
+		---@type snacks.Config
+		opts = {
+			notifier = {
+				-- your notifier configuration comes here
+				-- or leave it empty to use the default settings
+				-- refer to the configuration section below
+			},
+		},
+	},
+
+	-- Shows the :command line in a floating window
+	{
+		"VonHeikemen/fine-cmdline.nvim",
+		dependencies = {
+			{ "MunifTanjim/nui.nvim" },
+		},
+		init = function()
+			vim.api.nvim_set_keymap("n", ":", "<cmd>FineCmdline<CR>", { noremap = true })
+		end,
+	},
+
+	-- Show git changes in the gutter
+	{
+		"lewis6991/gitsigns.nvim",
+		init = function()
+			require("gitsigns").setup()
+		end,
+	},
+	{ "tpope/vim-fugitive" },
+	{
+		"NeogitOrg/neogit",
+		dependencies = {
+			"nvim-lua/plenary.nvim", -- required
+			"sindrets/diffview.nvim", -- optional - Diff integration
+
+			"nvim-telescope/telescope.nvim", -- optional
+		},
+		config = true,
+	},
+
+	{
+		"nvim-lualine/lualine.nvim",
+		init = function()
+			require("lualine").setup({})
+		end,
+	},
+	{ "kyazdani42/nvim-web-devicons" },
+
+	{ "github/copilot.vim" },
+
+	{
+		"mhartington/formatter.nvim",
+		init = function()
+			require("formatter").setup({
+				filetype = {
+					javascript = {
+						require("formatter.filetypes.javascript").prettier,
+					},
+					javascriptreact = {
+						require("formatter.filetypes.javascript").prettier,
+					},
+					typescript = {
+						require("formatter.filetypes.javascript").prettier,
+					},
+					typescriptreact = {
+						require("formatter.filetypes.javascript").prettier,
+					},
+					lua = {
+						require("formatter.filetypes.lua").stylua,
+					},
+					rust = {
+						require("formatter.filetypes.rust").rustfmt,
+					},
+					toml = {
+						require("formatter.filetypes.toml").taplo,
+					},
+				},
+			})
+			vim.keymap.set("n", "<leader>pp", ":Format<CR>")
+			local augroup = vim.api.nvim_create_augroup
+			local autocmd = vim.api.nvim_create_autocmd
+			augroup("__formatter__", { clear = true })
+			autocmd("BufWritePost", {
+				group = "__formatter__",
+				command = ":FormatWrite",
+			})
+		end,
+	},
+	{
+		-- Shows error messages from LSP in a floating window
+		"dgagn/diagflow.nvim",
+		opts = {
+			show_borders = true,
+		},
+	},
+	{
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+		"neovim/nvim-lspconfig",
+		{
+			"folke/lazydev.nvim",
+			ft = "lua", -- only load on lua files
+			opts = {
+				library = {
+					-- See the configuration section for more details
+					-- Load luvit types when the `vim.uv` word is found
+					{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+				},
+			},
+		},
+		"hrsh7th/cmp-nvim-lsp",
+		{
+			"hrsh7th/nvim-cmp",
+			opts = function(_, opts)
+				opts.sources = opts.sources or {}
+				table.insert(opts.sources, {
+					name = "lazydev",
+					group_index = 0, -- set group index to 0 to skip loading LuaLS completions
+				})
+			end,
+			init = function()
+				local cmp = require("cmp")
+				cmp.setup({
+					snippet = {
+						expand = function(args)
+							vim.snippet.expand(args.body)
+						end,
+					},
+					mapping = {
+						["<Down>"] = cmp.mapping.select_next_item(),
+						["<Up>"] = cmp.mapping.select_prev_item(),
+
+						["<CR>"] = cmp.mapping.confirm({
+							behavior = cmp.ConfirmBehavior.Insert,
+							select = true,
+						}),
+					},
+					sources = {
+						{ name = "nvim_lsp" },
+					},
+				})
+			end,
+		},
+	},
+}
