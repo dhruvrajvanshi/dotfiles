@@ -15,7 +15,7 @@ vim.diagnostic.config({
 	virtual_text = false,
 })
 
-vim.cmd.colorscheme("catppuccin-frappe")
+vim.cmd.colorscheme("ayu-mirage")
 
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", {})
 vim.keymap.set("n", "<leader>x", "<cmd>.lua<CR>", { desc = "Execute the current line" })

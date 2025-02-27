@@ -2,6 +2,7 @@ return {
 	{ "morhetz/gruvbox" },
 	{ "loctvl842/monokai-pro.nvim" },
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+	{ "Shatur/neovim-ayu" },
 	-- Comment a line using gcc, or any object using gc<motion>, e.g. gci{
 	{ "tpope/vim-commentary" },
 	{ "tpope/vim-surround" },
