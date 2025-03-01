@@ -26,3 +26,22 @@ function fish_prompt
       (set_color $arrow_color) '› '
 end
 
+alias rm="rm -i"
+alias cp="cp -i"
+alias mv="mv -i"
+alias mkdir="mkdir -p"
+alias h="history"
+alias g="git"
+
+
+if type -q "eza"
+  alias ls "eza"
+  alias l="eza"
+  alias ll="eza -l -h"
+else
+  alias l="ls"
+  alias ll="ls -l"
+end
+
+
+
