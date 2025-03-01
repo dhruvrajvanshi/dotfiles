@@ -27,6 +27,7 @@ alias tf=terraform
 alias ..='cd ..'
 alias ...='cd ...'
 alias l='ls -l'
+alias g='git'
 
 if command -v ag; then
     export FZF_DEFAULT_COMMAND='ag -l --hidden -g ""'
