@@ -1,13 +1,46 @@
 [user]
 	email = dhruv@rajv.dev
 	name = Dhruv Rajvanshi
-
-[push]
-  autoSetupRemote = true
-
 [includeIf "gitdir:~/projects/work/"]
   path = work.gitconfig
 
 # Put machine specific configs here
 [include]
   path = local.gitconfig
+
+
+[push]
+  autoSetupRemote = true
+	default = simple
+
+[column]
+  # Show lists in columns
+  ui = auto
+
+[branch]
+  # make git branch show the most recent branch first
+  sort = -committerdate
+
+[diff]
+  # Histogram handles moved code better
+  algorithm = histogram
+  # Highlight moved code in a different color
+  colorMoved = plain
+  # Header lines for diffs shows i for index, w for worktree and c for commit, instead of a/ and b/
+  mnemonicPrefix = true
+
+  # Handle renamed files better in diffs
+	renames = true
+
+
+[fetch]
+	prune = true
+	pruneTags = true
+  all = true
+
+[help]
+  autocorrect = prompt
+
+[commit]
+  # Show diffs in the commit window
+	verbose = true
