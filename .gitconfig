@@ -49,3 +49,5 @@
 	autoupdate = true
 [core]
 	excludesfile = /Users/dhruv/.gitignore
+[alias]
+	st = status -sb
