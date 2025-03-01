@@ -18,3 +18,7 @@ fi
 if [[ ! -L $HOME/.config/nvim ]]; then
   ln -s $HOME/dotfiles/config/nvim $HOME/.config/nvim
 fi
+
+if [[ ! -L $HOME/.gitconfig ]]; then
+  ln -s $HOME/dotfiles/.gitconfig $HOME/.gitconfig
+fi

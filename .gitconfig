@@ -1,0 +1,13 @@
+[user]
+	email = dhruv@rajv.dev
+	name = Dhruv Rajvanshi
+
+[push]
+  autoSetupRemote = true
+
+[includeIf "gitdir:~/projects/work/"]
+  path = work.gitconfig
+
+# Put machine specific configs here
+[include]
+  path = local.gitconfig
