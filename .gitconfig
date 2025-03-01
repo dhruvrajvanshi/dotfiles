@@ -44,3 +44,6 @@
 [commit]
   # Show diffs in the commit window
 	verbose = true
+[rerere]
+	enabled = true
+	autoupdate = true
