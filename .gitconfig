@@ -47,3 +47,5 @@
 [rerere]
 	enabled = true
 	autoupdate = true
+[core]
+	excludesfile = /Users/dhruv/.gitignore
