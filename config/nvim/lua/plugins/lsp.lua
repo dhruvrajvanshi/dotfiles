@@ -18,7 +18,7 @@ return {
 					if client == nil then
 						return
 					end
-					if client.supports_method("textDocument/rename") then
+					if client:supports_method("textDocument/rename") then
 						-- Create a keymap for vim.lsp.buf.rename()
 						vim.keymap.set("n", "<S-R>", vim.lsp.buf.rename, {
 							desc = "LSP Rename",
@@ -30,7 +30,7 @@ return {
 							desc = "LSP Rename",
 						})
 					end
-					if client.supports_method("textDocument/definition") then
+					if client:supports_method("textDocument/definition") then
 						vim.keymap.set("n", "gd", vim.lsp.buf.definition, {
 							desc = "LSP go to definition",
 						})
@@ -42,13 +42,13 @@ return {
 						})
 					end
 
-					if client.supports_method("textDocument/references") then
+					if client:supports_method("textDocument/references") then
 						vim.keymap.set("n", "grr", vim.lsp.buf.references, {
 							desc = "LSP go to references",
 						})
 					end
 
-					if client.supports_method("textDocument/implementation") then
+					if client:supports_method("textDocument/implementation") then
 						vim.keymap.set("n", "gri", vim.lsp.buf.implementation, {
 							desc = "LSP go to implementation",
 						})
