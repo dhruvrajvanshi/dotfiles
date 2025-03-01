@@ -26,8 +26,17 @@ export PATH="$HOME/dotfiles/bin:$PATH"
 alias tf=terraform
 alias ..='cd ..'
 alias ...='cd ...'
-alias l='ls -l'
+alias ll='ls -l'
 alias g='git'
+
+# Ask for confirmation before removing files
+alias rm='rm -i'
+# Make mv safer by asking for confirmation before overwriting files
+alias mv='mv --interactive'
+
+if ! type "eza" > /dev/null; then
+  alias ls='eza'
+fi
 
 if command -v ag; then
     export FZF_DEFAULT_COMMAND='ag -l --hidden -g ""'
