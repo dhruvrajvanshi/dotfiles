@@ -2,8 +2,7 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-
-eval "$(/opt/homebrew/bin/brew shellenv)"
+export EDITOR=nvim
 
 mise activate fish | source
 
@@ -43,5 +42,4 @@ else
   alias ll="ls -l"
 end
 
-
-
+eval "$(/opt/homebrew/bin/brew shellenv)"
