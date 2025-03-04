@@ -51,3 +51,4 @@
 	excludesfile = /Users/dhruv/.gitignore
 [alias]
 	st = status -sb
+	co = checkout
