@@ -6,6 +6,10 @@ export EDITOR=nvim
 
 mise activate fish | source
 
+if test -d ~/.cargo
+  fish_add_path ~/.cargo/bin
+end
+
 function fish_prompt
     set -l last_status $status
     # Prompt status only if it's not 0
