@@ -21,10 +21,15 @@ function fish_prompt
       set arrow_color "blue"
     end
 
+    set -l vcs_prompt (\
+      fish_vcs_prompt \
+      | string sub --start 3 --end -1\
+      | string shorten --max 16\
+    )
     string join '' \
       \n \
       (set_color $fish_color_cwd) (prompt_pwd) \
-      (set_color purple) (fish_vcs_prompt) \
+      (set_color purple) " ($vcs_prompt)" \
       \n \
       (set_color $arrow_color) '› '
 end
