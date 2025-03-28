@@ -10,6 +10,10 @@ return {
 			lspconfig.ts_ls.setup({})
 			lspconfig.eslint.setup({})
 			lspconfig.lua_ls.setup({})
+			lspconfig.jsonls.setup({})
+			if lspconfig.clangd then
+				lspconfig.clangd.setup({})
+			end
 			lspconfig.rust_analyzer.setup({})
 
 			vim.api.nvim_create_autocmd("LspAttach", {

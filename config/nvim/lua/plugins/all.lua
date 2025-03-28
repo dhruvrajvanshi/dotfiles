@@ -100,6 +100,12 @@ return {
 					toml = {
 						require("formatter.filetypes.toml").taplo,
 					},
+					c = {
+						require("formatter.filetypes.c").clangformat,
+					},
+					cpp = {
+						require("formatter.filetypes.c").clangformat,
+					},
 				},
 			})
 			vim.keymap.set("n", "<leader>pp", ":Format<CR>")
