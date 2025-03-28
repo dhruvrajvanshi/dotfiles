@@ -125,4 +125,25 @@ return {
 			show_borders = true,
 		},
 	},
+	{
+		-- Shows breadcrumbs in the top of the window
+		-- I installed this because I was having a hard
+		-- time seeing which file I'm in.
+		-- Had to run :ls % to see the file name
+		"Bekaboo/dropbar.nvim",
+		-- optional, but required for fuzzy finder support
+		dependencies = {
+			"nvim-telescope/telescope-fzf-native.nvim",
+			build = "make",
+		},
+		config = function()
+			local dropbar_api = require("dropbar.api")
+
+			-- Comes from the suggested config in the readme
+			-- Seems useful on a first try
+			vim.keymap.set("n", "<Leader>;", dropbar_api.pick, { desc = "Pick symbols in winbar" })
+
+			vim.keymap.set("n", "];", dropbar_api.select_next_context, { desc = "Select next context" })
+		end,
+	},
 }
