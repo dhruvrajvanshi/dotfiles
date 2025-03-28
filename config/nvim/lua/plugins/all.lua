@@ -144,6 +144,11 @@ return {
 			vim.keymap.set("n", "<Leader>;", dropbar_api.pick, { desc = "Pick symbols in winbar" })
 
 			vim.keymap.set("n", "];", dropbar_api.select_next_context, { desc = "Select next context" })
+
+			-- required for mouse based functionality
+			vim.cmd([[
+        set mousemoveevent
+      ]])
 		end,
 	},
 }
