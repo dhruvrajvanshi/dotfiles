@@ -1,6 +1,10 @@
 vim.g.mapleader = " "
 require("bootstrap-lazy")
-require("lazy").setup("plugins")
+require("lazy").setup("plugins", {
+	change_detection = {
+		notify = false,
+	},
+})
 
 vim.opt.shiftwidth = 2
 vim.opt.number = true
