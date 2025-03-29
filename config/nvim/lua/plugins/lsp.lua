@@ -49,15 +49,19 @@ return {
 
 					if client:supports_method("textDocument/references") then
 						vim.keymap.set("n", "grr", telescope.lsp_references, {
-							desc = "LSP go to references",
+							desc = "[G]o to [R]eferences",
 						})
 					end
 
 					if client:supports_method("textDocument/implementation") then
 						vim.keymap.set("n", "gri", telescope.lsp_implementations, {
-							desc = "LSP go to implementation",
+							desc = "[G]o to [I]mplementation",
 						})
 					end
+
+					vim.keymap.set("n", "gca", vim.lsp.buf.code_action, {
+						desc = "[G]o to [C]ode Actions",
+					})
 				end,
 			})
 		end,
