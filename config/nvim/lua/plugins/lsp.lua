@@ -62,7 +62,47 @@ return {
 					vim.keymap.set("n", "gca", vim.lsp.buf.code_action, {
 						desc = "[G]o to [C]ode Actions",
 					})
+
+					vim.keymap.set("n", "grs", telescope.lsp_document_symbols, {})
 				end,
+			})
+			--- @type table<string, fun()>
+			local lsp_commands = {
+				rename = vim.lsp.buf.rename,
+				references = telescope.lsp_references,
+				code_actions = vim.lsp.buf.code_action,
+				actions = vim.lsp.buf.code_action,
+				definition = telescope.lsp_definitions,
+				declaration = vim.lsp.buf.declaration,
+				implementation = vim.lsp.buf.implementation,
+				hover = vim.lsp.buf.hover,
+				signature_help = vim.lsp.buf.signature_help,
+				format = vim.lsp.buf.format,
+				type_definition = vim.lsp.buf.type_definition,
+				workspace_symbols = telescope.lsp_workspace_symbols,
+				document_symbols = telescope.lsp_document_symbols,
+			}
+			vim.api.nvim_create_user_command("Lsp", function(opts)
+				local args = opts.args
+				local subcommand = vim.split(args, " ")[1]
+
+				if lsp_commands[subcommand] then
+					lsp_commands[subcommand]()
+				else
+					vim.notify("Unknown LSP command: " .. subcommand)
+				end
+			end, {
+				nargs = "+",
+				complete = function(ArgLead)
+					local matches = {}
+					for cmd, _ in pairs(lsp_commands) do
+						if cmd:match("^" .. ArgLead) then
+							table.insert(matches, cmd)
+						end
+					end
+					return matches
+				end,
+				desc = "LSP commands",
 			})
 		end,
 	},
