@@ -1,5 +1,7 @@
 vim.g.mapleader = " "
 require("bootstrap-lazy")
+
+---@diagnostic disable-next-line: missing-fields
 require("lazy").setup("plugins", {
 	change_detection = {
 		notify = false,
