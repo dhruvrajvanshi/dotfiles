@@ -27,9 +27,7 @@ return {
 	-- Show git changes in the gutter
 	{
 		"lewis6991/gitsigns.nvim",
-		init = function()
-			require("gitsigns").setup()
-		end,
+		opts = {},
 	},
 	{ "tpope/vim-fugitive" },
 	{
@@ -37,17 +35,13 @@ return {
 		dependencies = {
 			"nvim-lua/plenary.nvim", -- required
 			"sindrets/diffview.nvim", -- optional - Diff integration
-
-			"nvim-telescope/telescope.nvim", -- optional
 		},
 		config = true,
 	},
 
 	{
 		"nvim-lualine/lualine.nvim",
-		init = function()
-			require("lualine").setup({})
-		end,
+		opts = {},
 	},
 	{ "kyazdani42/nvim-web-devicons" },
 
