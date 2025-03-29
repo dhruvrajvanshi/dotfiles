@@ -133,4 +133,19 @@ return {
 			suppressed_dirs = { "~/", "~/projects", "~/Downloads", "/", "~/projects/work" },
 		},
 	},
+	{
+		-- a better looking UI for vim.notify, which is used
+		-- by many plugins.
+		--
+		-- History is available via :Telescope notify
+		"rcarriga/nvim-notify",
+		---@module "notify"
+		---@type notify.Config
+		opts = {
+			merge_duplicates = false,
+		},
+		init = function()
+			vim.notify = require("notify")
+		end,
+	},
 }
