@@ -53,7 +53,8 @@ return {
 					end
 
 					if client:supports_method("textDocument/implementation") then
-						vim.keymap.set("n", "gri", vim.lsp.buf.implementation, {
+						local telescope = require("telescope.builtin")
+						vim.keymap.set("n", "gri", telescope.lsp_implementations, {
 							desc = "LSP go to implementation",
 						})
 					end

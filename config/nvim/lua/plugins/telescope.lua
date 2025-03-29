@@ -10,10 +10,7 @@ return {
 	},
 	init = function()
 		local builtin = require("telescope.builtin")
-		local git_files = function()
-			builtin.git_files({ show_untracked = true })
-		end
-		vim.keymap.set("n", "<C-S-N>", git_files, { desc = "Telescope git files" })
+		vim.keymap.set("n", "<C-S-N>", builtin.git_files, { desc = "Telescope git files" })
 		vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
 		vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
 		vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
@@ -21,4 +18,26 @@ return {
 		vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
 		vim.keymap.set("n", "<leader>fs", builtin.lsp_document_symbols, { desc = "Telescope lsp document symbols" })
 	end,
+	opts = {
+		pickers = {
+			find_files = {
+				theme = "dropdown",
+				previewer = true,
+				hidden = true,
+			},
+			live_grep = {
+				theme = "dropdown",
+				previewer = true,
+			},
+			git_files = {
+				theme = "dropdown",
+				previewer = true,
+				show_untracked = true,
+			},
+			lsp_document_symbols = {
+				theme = "dropdown",
+				previewer = true,
+			},
+		},
+	},
 }
