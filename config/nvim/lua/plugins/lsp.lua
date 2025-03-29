@@ -16,6 +16,7 @@ return {
 			end
 			lspconfig.rust_analyzer.setup({})
 
+			local telescope = require("telescope.builtin")
 			vim.api.nvim_create_autocmd("LspAttach", {
 				callback = function(args)
 					local client = vim.lsp.get_client_by_id(args.data.client_id)
@@ -47,13 +48,12 @@ return {
 					end
 
 					if client:supports_method("textDocument/references") then
-						vim.keymap.set("n", "grr", vim.lsp.buf.references, {
+						vim.keymap.set("n", "grr", telescope.lsp_references, {
 							desc = "LSP go to references",
 						})
 					end
 
 					if client:supports_method("textDocument/implementation") then
-						local telescope = require("telescope.builtin")
 						vim.keymap.set("n", "gri", telescope.lsp_implementations, {
 							desc = "LSP go to implementation",
 						})

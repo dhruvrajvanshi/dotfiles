@@ -1,6 +1,11 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	tag = "0.1.8",
+	-- the latest tagged version is quite old, and it shows
+	-- a warning about the missing second argument telescope
+	-- vim.lsp.util.make_position_params
+	-- This is why I've fixed it to the latest commit
+	branch = "master",
+	commit = "a4ed82509cecc56df1c7138920a1aeaf246c0ac5",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		{
@@ -35,6 +40,10 @@ return {
 				show_untracked = true,
 			},
 			lsp_document_symbols = {
+				theme = "dropdown",
+				previewer = true,
+			},
+			lsp_references = {
 				theme = "dropdown",
 				previewer = true,
 			},

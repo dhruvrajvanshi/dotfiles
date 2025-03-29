@@ -104,11 +104,6 @@ return {
 		-- time seeing which file I'm in.
 		-- Had to run :ls % to see the file name
 		"Bekaboo/dropbar.nvim",
-		-- optional, but required for fuzzy finder support
-		dependencies = {
-			"nvim-telescope/telescope-fzf-native.nvim",
-			build = "make",
-		},
 		config = function()
 			local dropbar_api = require("dropbar.api")
 
