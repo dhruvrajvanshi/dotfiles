@@ -36,8 +36,8 @@ return {
 						})
 					end
 					if client:supports_method("textDocument/definition") then
-						vim.keymap.set("n", "gd", vim.lsp.buf.definition, {
-							desc = "LSP go to definition",
+						vim.keymap.set("n", "gd", telescope.lsp_definitions, {
+							desc = "[G]o to [D]efinition",
 						})
 						vim.keymap.set("n", "ght", vim.lsp.buf.hover, {
 							desc = "LSP hover",

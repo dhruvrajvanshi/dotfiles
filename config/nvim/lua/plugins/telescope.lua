@@ -47,6 +47,10 @@ return {
 				theme = "dropdown",
 				previewer = true,
 			},
+			lsp_definitions = {
+				theme = "dropdown",
+				previewer = true,
+			},
 		},
 	},
 }
