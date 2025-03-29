@@ -42,13 +42,8 @@ alias h="history"
 alias g="git"
 
 
-if type -q "eza"
-  alias ls "eza"
-  alias l="eza"
-  alias ll="eza -l -h"
-else
-  alias l="ls"
-  alias ll="ls -l"
-end
+alias ls "eza"
+alias l="ls"
+alias ll="ls -l -h"
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
