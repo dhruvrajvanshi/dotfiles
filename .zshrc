@@ -34,7 +34,7 @@ alias rm='rm -i'
 # Make mv safer by asking for confirmation before overwriting files
 alias mv='mv --interactive'
 
-if ! type "eza" > /dev/null; then
+if type "eza" > /dev/null; then
   alias ls='eza'
 fi
 
