@@ -46,4 +46,6 @@ alias ls "eza"
 alias l="ls"
 alias ll="ls -l -h"
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if test -d /opt/homebrew
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+end
