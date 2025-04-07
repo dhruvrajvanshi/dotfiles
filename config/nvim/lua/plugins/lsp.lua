@@ -138,6 +138,8 @@ return {
 				mapping = {
 					["<Down>"] = cmp.mapping.select_next_item(),
 					["<Up>"] = cmp.mapping.select_prev_item(),
+					["<C-n>"] = cmp.mapping.select_next_item(),
+					["<C-p>"] = cmp.mapping.select_prev_item(),
 
 					["<CR>"] = cmp.mapping.confirm({
 						behavior = cmp.ConfirmBehavior.Insert,
