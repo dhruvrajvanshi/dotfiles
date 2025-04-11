@@ -53,3 +53,4 @@
 	st = !git status -sb && git log --oneline --abbrev-commit -5
   co = checkout
   ll = log --oneline --abbrev-commit -10
+  br = branch
