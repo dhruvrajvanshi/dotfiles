@@ -48,7 +48,9 @@
 	enabled = true
 	autoupdate = true
 [core]
-	excludesfile = /Users/dhruv/.gitignore
+  excludesfile = /Users/dhruv/.gitignore
+  pager = delta
+
 [alias]
 	st = !git status -sb && git log --oneline --abbrev-commit -5
   co = checkout
