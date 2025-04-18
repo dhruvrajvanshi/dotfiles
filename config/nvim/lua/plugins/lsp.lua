@@ -14,6 +14,9 @@ return {
 			if lspconfig.clangd then
 				lspconfig.clangd.setup({})
 			end
+			if lspconfig.biome then
+				lspconfig.biome.setup({})
+			end
 			lspconfig.rust_analyzer.setup({})
 
 			local telescope = require("telescope.builtin")
