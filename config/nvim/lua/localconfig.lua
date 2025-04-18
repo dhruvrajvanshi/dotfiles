@@ -1,3 +1,7 @@
+---@class LocalConfig
+---@field format_on_save boolean
+
+---@type LocalConfig
 local config = {
 	format_on_save = false,
 }
