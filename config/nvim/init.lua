@@ -30,4 +30,7 @@ vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to window right" })
 -- https://neovim.io/doc/user/diagnostic.html
 vim.diagnostic.config({
 	virtual_text = true,
+	float = {
+		border = "rounded",
+	},
 })
