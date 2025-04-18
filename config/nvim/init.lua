@@ -17,10 +17,6 @@ vim.opt.scrolloff = 12
 vim.opt.termguicolors = true
 vim.opt.swapfile = false
 
-vim.diagnostic.config({
-	virtual_text = false,
-})
-
 vim.cmd.colorscheme("ayu-mirage")
 
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", {})
@@ -33,8 +29,5 @@ vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to window right" })
 
 -- https://neovim.io/doc/user/diagnostic.html
 vim.diagnostic.config({
-	-- Show the diagnostic message on the line where the error is
-	-- Without this, the diagnostic will be underlined, but there's
-	-- no obvious way to read the message
-	virtual_text = false,
+	virtual_text = true,
 })

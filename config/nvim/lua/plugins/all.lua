@@ -94,13 +94,6 @@ return {
 		end,
 	},
 	{
-		-- Shows error messages from LSP in a floating window
-		"dgagn/diagflow.nvim",
-		opts = {
-			show_borders = true,
-		},
-	},
-	{
 		-- Shows breadcrumbs in the top of the window
 		-- I installed this because I was having a hard
 		-- time seeing which file I'm in.
