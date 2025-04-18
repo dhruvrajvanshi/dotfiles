@@ -42,7 +42,11 @@ return {
 						vim.keymap.set("n", "gd", telescope.lsp_definitions, {
 							desc = "[G]o to [D]efinition",
 						})
-						vim.keymap.set("n", "ght", vim.lsp.buf.hover, {
+						vim.keymap.set("n", "ght", function()
+							vim.lsp.buf.hover({
+								border = "rounded",
+							})
+						end, {
 							desc = "LSP hover",
 						})
 						vim.keymap.set("n", "ghe", vim.diagnostic.open_float, {
