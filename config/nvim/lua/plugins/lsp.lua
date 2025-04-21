@@ -1,5 +1,12 @@
+---@module "lazy"
+---@type LazySpec
 return {
-	"williamboman/mason.nvim",
+	{
+		"dhruvrajvanshi/mason.nvim",
+		-- Fork of `williamboman/mason.nvim` with a fix
+		-- for early initialization of cached_features
+		commit = "aba96ec52f615479c7dd2fc074e4cb66bacaf0bd",
+	},
 	"williamboman/mason-lspconfig.nvim",
 	{
 		"neovim/nvim-lspconfig",
