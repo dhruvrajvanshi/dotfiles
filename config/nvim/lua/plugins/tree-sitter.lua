@@ -1,3 +1,5 @@
+---@module "lazy"
+---@type LazySpec
 return {
 	-- Provides syntax highlighting for various languages; Set to auto install when a buffer
 	-- is opened
@@ -52,5 +54,7 @@ return {
 		end,
 	},
 	{ "nvim-treesitter/nvim-treesitter-textobjects" },
-	{ "nvim-treesitter/nvim-treesitter-context" },
+	{ "nvim-treesitter/nvim-treesitter-context", opts = {
+		max_lines = 3,
+	} },
 }
