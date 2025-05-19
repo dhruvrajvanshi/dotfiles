@@ -8,5 +8,6 @@ return {
 	},
 	init = function()
 		vim.keymap.set("n", "<leader>b", "<cmd>Neotree toggle<cr>", { desc = "Toggle NeoTree" })
+		vim.keymap.set("n", "<C-S-B>", "<cmd>Neotree toggle<cr>", { desc = "Toggle NeoTree" })
 	end,
 }
