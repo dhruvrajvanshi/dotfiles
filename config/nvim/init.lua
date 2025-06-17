@@ -1,12 +1,4 @@
 vim.g.mapleader = " "
-require("bootstrap-lazy")
-
----@diagnostic disable-next-line: missing-fields
-require("lazy").setup("plugins", {
-	change_detection = {
-		notify = false,
-	},
-})
 
 vim.opt.shiftwidth = 2
 vim.opt.number = true
@@ -26,6 +18,18 @@ vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to window below" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to window above" })
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to window left" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to window right" })
+
+if vim.g.vscode then
+	return
+end
+
+require("bootstrap-lazy")
+---@diagnostic disable-next-line: missing-fields
+require("lazy").setup("plugins", {
+	change_detection = {
+		notify = false,
+	},
+})
 
 -- https://neovim.io/doc/user/diagnostic.html
 vim.diagnostic.config({
