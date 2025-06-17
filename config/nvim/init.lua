@@ -9,8 +9,6 @@ vim.opt.scrolloff = 12
 vim.opt.termguicolors = true
 vim.opt.swapfile = false
 
-vim.cmd.colorscheme("ayu-mirage")
-
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", {})
 vim.keymap.set("n", "<leader>x", "<cmd>.lua<CR>", { desc = "Execute the current line" })
 
@@ -23,14 +21,6 @@ if vim.g.vscode then
 	return
 end
 
-require("bootstrap-lazy")
----@diagnostic disable-next-line: missing-fields
-require("lazy").setup("plugins", {
-	change_detection = {
-		notify = false,
-	},
-})
-
 -- https://neovim.io/doc/user/diagnostic.html
 vim.diagnostic.config({
 	virtual_text = {
@@ -40,3 +30,13 @@ vim.diagnostic.config({
 		border = "rounded",
 	},
 })
+
+require("bootstrap-lazy")
+---@diagnostic disable-next-line: missing-fields
+require("lazy").setup("plugins", {
+	change_detection = {
+		notify = false,
+	},
+})
+
+vim.cmd.colorscheme("ayu-mirage")
