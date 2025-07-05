@@ -61,3 +61,5 @@ if not contains $_asdf_shims $PATH
     set -gx --prepend PATH $_asdf_shims
 end
 set --erase _asdf_shims
+
+set -gx HOMEBREW_NO_AUTO_UPDATE 1
