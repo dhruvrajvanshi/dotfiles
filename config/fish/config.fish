@@ -4,8 +4,6 @@ end
 
 export EDITOR=nvim
 
-mise activate fish | source
-
 if test -d ~/.cargo
   fish_add_path ~/.cargo/bin
 end
