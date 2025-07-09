@@ -53,18 +53,6 @@ return {
       ]])
 		end,
 	},
-	-- automatically save and restore currently opened buffers,
-	-- and cursor positions
-	{
-		"rmagatti/auto-session",
-		lazy = false,
-
-		---@module "auto-session"
-		---@type AutoSession.Config
-		opts = {
-			suppressed_dirs = { "~/", "~/projects", "~/Downloads", "/", "~/projects/work" },
-		},
-	},
 	{
 		-- a better looking UI for vim.notify, which is used
 		-- by many plugins.
