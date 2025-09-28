@@ -48,6 +48,7 @@ if test -d /opt/homebrew
   eval "$(/opt/homebrew/bin/brew shellenv)"
 end
 
+set -gx PATH "$HOME/.local/bin" $PATH
 set -gx HOMEBREW_NO_AUTO_UPDATE 1
 set -gx VOLTA_HOME "$HOME/.volta"
 set -gx PATH "$VOLTA_HOME/bin" $PATH
