@@ -56,3 +56,4 @@
   co = checkout
   ll = log --oneline --abbrev-commit -10
   br = branch
+	search = !git rev-list --all | xargs git grep -F
