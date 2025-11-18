@@ -58,3 +58,5 @@
   br = branch
   search = !git rev-list --all | xargs git grep -F
   ca = commit --amend --no-edit
+  c  = commit
+  p  = push
