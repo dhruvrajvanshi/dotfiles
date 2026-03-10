@@ -14,6 +14,9 @@ return {
 				typescript = {
 					require("formatter.filetypes.javascript").prettier,
 				},
+				css = {
+					require("formatter.filetypes.css").prettier,
+				},
 				typescriptreact = {
 					require("formatter.filetypes.javascript").prettier,
 				},
