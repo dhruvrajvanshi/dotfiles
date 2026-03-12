@@ -87,4 +87,28 @@ return {
 			},
 		},
 	},
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"MunifTanjim/nui.nvim",
+			"nvim-tree/nvim-web-devicons", -- optional, but recommended
+		},
+		lazy = false, -- neo-tree will lazily load itself
+		init = function()
+			vim.api.nvim_set_keymap(
+				"n",
+				"<C-S-B>",
+				"<cmd>Neotree toggle<CR>",
+				{ noremap = true, desc = "Toggle file explorer" }
+			)
+			vim.api.nvim_set_keymap(
+				"i",
+				"<C-S-B>",
+				"<cmd>Neotree toggle<CR>",
+				{ noremap = true, desc = "Toggle file explorer" }
+			)
+		end,
+	},
 }
