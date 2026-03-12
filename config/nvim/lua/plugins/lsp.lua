@@ -74,6 +74,18 @@ return {
 					})
 
 					vim.keymap.set("n", "grs", telescope.lsp_document_symbols, {})
+
+					-- TODO: Replace nvim-cmp with native vim.lsp.completion
+					-- Right now, I'm not enabling it because I couldn't get it to auto trigger
+					-- It only triggers when I type a trigger character (like .) or manually call it with <C-x><C-o>
+					--
+					-- vim.cmd([[set completeopt+=menuone,noselect,popup]])
+					-- vim.lsp.completion.enable(true, client.id, args.buf, {
+					-- 	autotrigger = true,
+					-- 	convert = function(item)
+					-- 		return { abbr = item.label:gsub("%b()", "") }
+					-- 	end,
+					-- })
 				end,
 			})
 			--- @type table<string, fun()>
