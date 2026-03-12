@@ -68,4 +68,18 @@ return {
 			vim.notify = require("notify")
 		end,
 	},
+	{
+		-- Better quickfix window
+		"https://github.com/stevearc/quicker.nvim",
+		ft = "qf",
+		init = function() end,
+		---@module "quicker"
+		---@type quicker.SetupOptions
+		opts = {
+			keys = {
+				{ ">", "<cmd>lua require('quicker').toggle_expand()<CR>", desc = "Expand quickfix content" },
+				{ "<", "<cmd>lua require('quicker').toggle_expand()<CR>", desc = "Collapse quickfix content" },
+			},
+		},
+	},
 }
