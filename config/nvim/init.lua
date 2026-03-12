@@ -5,11 +5,30 @@ vim.opt.number = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
-vim.opt.scrolloff = 12
+
+-- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
+vim.o.ignorecase = true
+vim.o.smartcase = true
+
+vim.o.cursorline = true -- Highlight the line where the cursor is on.
+vim.o.scrolloff = 10 -- Keep this many screen lines above/below the cursor.
+vim.o.list = true -- Show <tab> and trailing spaces.
+
+-- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
+-- instead raise a dialog asking if you wish to save the current file(s) See `:help 'confirm'`
+vim.o.confirm = true
+
 vim.opt.termguicolors = true
 vim.opt.swapfile = false
+vim.api.nvim_create_autocmd("UIEnter", {
+	callback = function()
+		vim.o.clipboard = "unnamedplus"
+	end,
+})
 
-vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", {})
+-- Use <Esc> to exit terminal mode
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+
 vim.keymap.set("n", "<leader>x", "<cmd>.lua<CR>", { desc = "Execute the current line" })
 
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to window below" })
