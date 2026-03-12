@@ -1,6 +1,16 @@
 ---@module "lazy"
 ---@type LazySpec
 return {
+	{ "jiangmiao/auto-pairs" },
+	-- Comment a line using gcc, or any object using gc<motion>, e.g. gci{
+	{ "tpope/vim-commentary" },
+	{ "tpope/vim-surround" },
+	-- Repeat action (.) doesn't work with vim-surround. This fixes that
+	{ "tpope/vim-repeat" },
+
+	-- Adds :GBrowse command for interacting with github
+	{ "tpope/vim-rhubarb" },
+	{ "folke/which-key.nvim" },
 	{ "morhetz/gruvbox" },
 	{
 		"navarasu/onedark.nvim",
@@ -14,15 +24,6 @@ return {
 	{ "loctvl842/monokai-pro.nvim" },
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	{ "Shatur/neovim-ayu" },
-	-- Comment a line using gcc, or any object using gc<motion>, e.g. gci{
-	{ "tpope/vim-commentary" },
-	{ "tpope/vim-surround" },
-	-- Repeat action (.) doesn't work with vim-surround. This fixes that
-	{ "tpope/vim-repeat" },
-
-	-- Adds :GBrowse command for interacting with github
-	{ "tpope/vim-rhubarb" },
-	{ "folke/which-key.nvim" },
 
 	-- Shows the :command line in a floating window
 	{
