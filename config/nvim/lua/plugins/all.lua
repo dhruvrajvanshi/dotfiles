@@ -76,6 +76,11 @@ return {
 		---@module "quicker"
 		---@type quicker.SetupOptions
 		opts = {
+			edit = {
+				-- allow editing the quickfix list like a buffer
+				enabled = true,
+				autosave = true,
+			},
 			keys = {
 				{ ">", "<cmd>lua require('quicker').toggle_expand()<CR>", desc = "Expand quickfix content" },
 				{ "<", "<cmd>lua require('quicker').toggle_expand()<CR>", desc = "Collapse quickfix content" },
