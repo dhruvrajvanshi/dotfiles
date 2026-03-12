@@ -48,15 +48,6 @@ return {
 		-- Had to run :ls % to see the file name
 		"Bekaboo/dropbar.nvim",
 		config = function()
-			local dropbar_api = require("dropbar.api")
-
-			-- Comes from the suggested config in the readme
-			-- Seems useful on a first try
-			vim.keymap.set("n", "<Leader>;", dropbar_api.pick, { desc = "Pick symbols in winbar" })
-
-			vim.keymap.set("n", "];", dropbar_api.select_next_context, { desc = "Select next context" })
-
-			-- required for mouse based functionality
 			vim.cmd([[
         set mousemoveevent
       ]])
