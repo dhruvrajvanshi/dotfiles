@@ -37,6 +37,15 @@ vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to window left" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to window right" })
 vim.keymap.set("n", "grd", ":e %/..<CR>", { desc = "[G]o to [d]irectory" })
 
+-- Highlight when yanking (copying) text.
+-- Try it with `yap` in normal mode. See `:h vim.hl.on_yank()`
+vim.api.nvim_create_autocmd("TextYankPost", {
+	desc = "Highlight when yanking (copying) text",
+	callback = function()
+		vim.hl.on_yank()
+	end,
+})
+
 if vim.g.vscode then
 	return
 end
