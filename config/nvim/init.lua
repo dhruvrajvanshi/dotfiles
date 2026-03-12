@@ -59,4 +59,4 @@ require("lazy").setup("plugins", {
 	},
 })
 
-vim.cmd.colorscheme("ayu-mirage")
+vim.cmd.colorscheme("onedark")
