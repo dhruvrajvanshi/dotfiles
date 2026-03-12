@@ -5,6 +5,8 @@ vim.opt.number = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
+vim.opt.grepprg = "rg --vimgrep -uu --smart-case --hidden $* ."
+vim.keymap.set("n", "<leader>gg", ":copen | :silent :grep ")
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.o.ignorecase = true
