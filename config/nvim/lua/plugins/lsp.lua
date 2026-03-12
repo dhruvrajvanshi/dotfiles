@@ -13,18 +13,14 @@ return {
 		init = function()
 			require("mason").setup()
 			-- require("mason-lspconfig").setup()
-			local lspconfig = require("lspconfig")
-			lspconfig.ts_ls.setup({})
-			lspconfig.eslint.setup({})
-			lspconfig.lua_ls.setup({})
-			lspconfig.jsonls.setup({})
-			if lspconfig.clangd then
-				lspconfig.clangd.setup({})
-			end
-			if lspconfig.biome then
-				lspconfig.biome.setup({})
-			end
-			lspconfig.rust_analyzer.setup({})
+			--
+			vim.lsp.enable("ts_ls")
+			vim.lsp.enable("eslint")
+			vim.lsp.enable("lua_ls")
+			vim.lsp.enable("jsonls")
+			vim.lsp.enable("clangd")
+			vim.lsp.enable("biome")
+			vim.lsp.enable("rust_analyzer")
 
 			local telescope = require("telescope.builtin")
 			vim.api.nvim_create_autocmd("LspAttach", {
