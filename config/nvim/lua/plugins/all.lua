@@ -2,6 +2,15 @@
 ---@type LazySpec
 return {
 	{ "morhetz/gruvbox" },
+	{
+		"navarasu/onedark.nvim",
+
+		config = function()
+			require("onedark").setup({
+				style = "darker",
+			})
+		end,
+	},
 	{ "loctvl842/monokai-pro.nvim" },
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	{ "Shatur/neovim-ayu" },
