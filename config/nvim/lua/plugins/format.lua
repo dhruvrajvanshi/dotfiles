@@ -35,6 +35,9 @@ return {
 				cpp = {
 					require("formatter.filetypes.c").clangformat,
 				},
+				zig = {
+					require("formatter.filetypes.zig").zigfmt,
+				},
 			},
 		})
 		vim.keymap.set("n", "<leader>pp", ":Format<CR>")
