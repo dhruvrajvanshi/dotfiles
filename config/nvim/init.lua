@@ -70,3 +70,17 @@ require("lazy").setup("plugins", {
 })
 
 vim.cmd.colorscheme("onedark")
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "zig",
+	callback = function()
+		vim.bo.makeprg = "zig build"
+		vim.bo.errorformat = "%f:%l:%c: %t%.%#: %m,%f:%l:%c: %m"
+	end,
+})
+
+-- Set up :M to run `:make | copen`
+vim.api.nvim_create_user_command("M", function()
+	vim.cmd.make()
+	vim.cmd.copen()
+end, { desc = "Run :make and open the quickfix list" })
