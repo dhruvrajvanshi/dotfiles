@@ -28,7 +28,7 @@ vim.api.nvim_create_autocmd("UIEnter", {
 })
 
 -- Use <Esc> to exit terminal mode
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>")
 
 vim.keymap.set("n", "<leader>x", "<cmd>.lua<CR>", { desc = "Execute the current line" })
 
