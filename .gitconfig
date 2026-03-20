@@ -55,7 +55,7 @@
 	st = !git status -sb && git log --oneline --abbrev-commit -5
   co = checkout
   ll = log --oneline --abbrev-commit -10
-  br = branch --sort=committerdate
+  br = "!git branch --sort=-committerdate --format='%(refname:short)' | head -10"
   search = !git rev-list --all | xargs git grep -F
   ca = commit --amend --no-edit
   c  = commit
