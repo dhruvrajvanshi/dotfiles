@@ -24,17 +24,6 @@ return {
 	{ "loctvl842/monokai-pro.nvim" },
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	{ "Shatur/neovim-ayu" },
-
-	-- Shows the :command line in a floating window
-	{
-		"VonHeikemen/fine-cmdline.nvim",
-		dependencies = {
-			{ "MunifTanjim/nui.nvim" },
-		},
-		init = function()
-			vim.api.nvim_set_keymap("n", ":", "<cmd>FineCmdline<CR>", { noremap = true })
-		end,
-	},
 	{
 		"nvim-lualine/lualine.nvim",
 		opts = {},
