@@ -84,3 +84,7 @@ vim.api.nvim_create_user_command("M", function()
 	vim.cmd.make()
 	vim.cmd.copen()
 end, { desc = "Run :make and open the quickfix list" })
+
+-- Automatically call :noh after a cooldown period of inactivity, or entering the insert mode.
+-- This is a vim builtin plugin
+vim.cmd("packadd nohlsearch")
