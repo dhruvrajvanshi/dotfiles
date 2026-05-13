@@ -71,10 +71,6 @@ return {
 						})
 					end
 
-					vim.keymap.set("n", "gca", vim.lsp.buf.code_action, {
-						desc = "[G]o to [C]ode Actions",
-					})
-
 					vim.keymap.set("n", "grs", telescope.lsp_document_symbols, {})
 
 					-- TODO: Replace nvim-cmp with native vim.lsp.completion
