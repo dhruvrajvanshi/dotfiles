@@ -72,6 +72,10 @@ return {
 					theme = "dropdown",
 					previewer = true,
 				},
+				colorscheme = {
+					previewer = true,
+					enable_preview = true,
+				},
 			},
 		},
 	},
