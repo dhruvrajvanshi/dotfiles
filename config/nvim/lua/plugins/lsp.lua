@@ -22,6 +22,7 @@ return {
 			vim.lsp.enable("biome")
 			vim.lsp.enable("rust_analyzer")
 			vim.lsp.enable("zls")
+			vim.lsp.enable("angularls")
 
 			local telescope = require("telescope.builtin")
 			vim.api.nvim_create_autocmd("LspAttach", {
