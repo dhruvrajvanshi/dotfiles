@@ -52,7 +52,7 @@ return {
 		local project_dir = vim.fn.getcwd()
 
 		-- Auto enable format on save if we find known formatter config files in the project
-		local patterns = { ".prettierrc", ".prettierignore" }
+		local patterns = { ".prettierrc", ".prettierignore", ".clang-format" }
 		for _, pattern in ipairs(patterns) do
 			if vim.fn.filereadable(project_dir .. "/" .. pattern) == 1 then
 				enable_format_on_save()
