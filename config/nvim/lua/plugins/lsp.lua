@@ -1,3 +1,12 @@
+local function has_root_files(root_files)
+	local cwd = vim.fn.getcwd()
+	for _, file in ipairs(root_files) do
+		if vim.fn.filereadable(cwd .. "/" .. file) == 1 then
+			return true
+		end
+	end
+	return false
+end
 ---@module "lazy"
 ---@type LazySpec
 return {
@@ -22,7 +31,10 @@ return {
 			vim.lsp.enable("biome")
 			vim.lsp.enable("rust_analyzer")
 			vim.lsp.enable("zls")
-			vim.lsp.enable("angularls")
+
+			if has_root_files({ "angular.json" }) then
+				vim.lsp.enable("angularls")
+			end
 
 			local telescope = require("telescope.builtin")
 			vim.api.nvim_create_autocmd("LspAttach", {
