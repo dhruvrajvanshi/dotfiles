@@ -1,6 +1,11 @@
 [user]
 	email = dhruv@rajv.dev
-	name = Dhruv Rajvanshi
+  name = Dhruv Rajvanshi
+
+[core]
+  excludesfile = ~/.gitignore
+  pager = delta
+
 [includeIf "gitdir:~/projects/work/"]
   path = work.gitconfig
 
@@ -36,7 +41,8 @@
   mnemonicPrefix = true
 
   # Handle renamed files better in diffs
-	renames = true
+  renames = true
+  external = difft
 
 
 [fetch]
@@ -53,9 +59,9 @@
 [rerere]
 	enabled = true
 	autoupdate = true
-[core]
-  excludesfile = /Users/dhruv/.gitignore
-  pager = delta
+
+[delta]
+  side-by-side = true
 
 [alias]
 	st = !git status -sb && git log --oneline --abbrev-commit -5
