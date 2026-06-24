@@ -16,6 +16,9 @@
 [pull]
   rebase = true
 
+[merge]
+  conflictstyle = zdiff3
+
 [column]
   # Show lists in columns
   ui = auto
