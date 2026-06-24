@@ -5,14 +5,14 @@
 [core]
   excludesfile = ~/.gitignore
   pager = delta
-
-[includeIf "gitdir:~/projects/work/"]
-  path = work.gitconfig
-
 # Put machine specific configs here
 [include]
   path = local.gitconfig
 
+# Note that the order of includes matters. Work gitconfig will override
+# core.sshCommand typically for this directory, so this has to be included after the local.gitconfig include.
+[includeIf "gitdir:~/projects/work/"]
+  path = work.gitconfig
 
 [push]
   autoSetupRemote = true
