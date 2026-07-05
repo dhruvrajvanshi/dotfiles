@@ -100,9 +100,6 @@ return {
 				{ noremap = true, desc = "Toggle file explorer" }
 			)
 		end,
-		{
-			"tris203/precognition.nvim",
-			opts = {},
-		},
+
 	},
 }
