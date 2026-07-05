@@ -21,9 +21,11 @@ return {
 		"neovim/nvim-lspconfig",
 		init = function()
 			require("mason").setup()
-			-- require("mason-lspconfig").setup()
-			--
-			vim.lsp.enable("ts_ls")
+			if vim.fn.getcwd() == vim.fn.expand("~/projects/uptimefunk") then
+				vim.lsp.enable("tsgo")
+			else
+				vim.lsp.enable("vtsls")
+			end
 			vim.lsp.enable("eslint")
 			vim.lsp.enable("lua_ls")
 			vim.lsp.enable("jsonls")
