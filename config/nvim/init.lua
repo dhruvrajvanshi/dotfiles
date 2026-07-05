@@ -89,3 +89,25 @@ end, { desc = "Run :make and open the quickfix list" })
 -- Automatically call :noh after a cooldown period of inactivity, or entering the insert mode.
 -- This is a vim builtin plugin
 vim.cmd("packadd nohlsearch")
+
+-- Restore cursor position when reopening a file
+vim.api.nvim_create_autocmd("BufReadPost", {
+	callback = function()
+		local mark = vim.api.nvim_buf_get_mark(0, '"')
+		local lcount = vim.api.nvim_buf_line_count(0)
+		if mark[1] > 0 and mark[1] <= lcount then
+			pcall(vim.api.nvim_win_set_cursor, 0, mark)
+		end
+	end,
+})
+
+-- open the last opened file on vim startup
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = function()
+		if vim.fn.argc() == 0 and #vim.v.oldfiles > 0 then
+			vim.schedule(function()
+				vim.cmd("edit " .. vim.fn.fnameescape(vim.v.oldfiles[1]))
+			end)
+		end
+	end,
+})
