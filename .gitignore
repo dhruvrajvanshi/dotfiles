@@ -1,1 +1,6 @@
 .DS_Store
+
+# I think these are modified automatically by fish.
+# I never wrote these files so I don't wanna track them
+/config/fish/fish_variables
+/config/fish/conf.d
