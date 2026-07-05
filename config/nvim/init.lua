@@ -70,7 +70,7 @@ require("lazy").setup("plugins", {
 	},
 })
 
-vim.cmd.colorscheme("onedark")
+vim.cmd.colorscheme("monokai-pro-machine")
 
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "zig",
