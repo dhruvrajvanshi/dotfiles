@@ -30,7 +30,6 @@ return {
 	},
 	{ "kyazdani42/nvim-web-devicons" },
 
-	{ "github/copilot.vim" },
 	{
 		-- Shows breadcrumbs in the top of the window
 		-- I installed this because I was having a hard
@@ -100,6 +99,5 @@ return {
 				{ noremap = true, desc = "Toggle file explorer" }
 			)
 		end,
-
 	},
 }
