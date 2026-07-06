@@ -111,3 +111,9 @@ vim.api.nvim_create_autocmd("VimEnter", {
 		end
 	end,
 })
+
+-- check if cwd/.nvim/init.lua exists
+local dot_config_path = vim.fn.getcwd() .. "/.nvim/init.lua"
+if vim.fn.filereadable(dot_config_path) == 1 then
+	dofile(dot_config_path)
+end
