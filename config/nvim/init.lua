@@ -101,13 +101,19 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 	end,
 })
 
--- open the last opened file on vim startup
+-- open the last opened file in the current repo on vim startup
 vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function()
 		if vim.fn.argc() == 0 and #vim.v.oldfiles > 0 then
-			vim.schedule(function()
-				vim.cmd("edit " .. vim.fn.fnameescape(vim.v.oldfiles[1]))
-			end)
+			local cwd = vim.fn.getcwd() .. "/"
+			for _, file in ipairs(vim.v.oldfiles) do
+				if file:sub(1, #cwd) == cwd then
+					vim.schedule(function()
+						vim.cmd("edit " .. vim.fn.fnameescape(file))
+					end)
+					break
+				end
+			end
 		end
 	end,
 })
