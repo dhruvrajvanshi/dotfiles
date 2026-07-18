@@ -123,3 +123,22 @@ local dot_config_path = vim.fn.getcwd() .. "/.nvim/init.lua"
 if vim.fn.filereadable(dot_config_path) == 1 then
 	dofile(dot_config_path)
 end
+
+-- Treesitter incremental selection: vv to start, v to expand, V to contract
+local ts_select = require("vim.treesitter._select")
+local function ts_select_parent()
+	if vim.treesitter.get_parser(nil, nil, { error = false }) then
+		ts_select.select_parent(vim.v.count1)
+	end
+end
+local function ts_select_child()
+	if vim.treesitter.get_parser(nil, nil, { error = false }) then
+		ts_select.select_child(vim.v.count1)
+	end
+end
+vim.keymap.set("n", "vv", function()
+	vim.cmd("normal! v")
+	ts_select_parent()
+end, { desc = "Start treesitter selection" })
+vim.keymap.set("x", "v", ts_select_parent, { desc = "Expand treesitter selection" })
+vim.keymap.set("x", "V", ts_select_child, { desc = "Contract treesitter selection" })
