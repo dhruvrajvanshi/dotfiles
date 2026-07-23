@@ -10,12 +10,6 @@ end
 ---@module "lazy"
 ---@type LazySpec
 return {
-	{
-		"dhruvrajvanshi/mason.nvim",
-		-- Fork of `williamboman/mason.nvim` with a fix
-		-- for early initialization of cached_features
-		commit = "aba96ec52f615479c7dd2fc074e4cb66bacaf0bd",
-	},
 	"williamboman/mason-lspconfig.nvim",
 	{
 		"neovim/nvim-lspconfig",
@@ -24,6 +18,14 @@ return {
 			if vim.fn.getcwd() == vim.fn.expand("~/projects/uptimefunk") then
 				vim.lsp.enable("tsgo")
 			else
+				vim.lsp.config("vtsls", {
+
+					settings = {
+						vtsls = {
+							autoUseWorkspaceTsdk = true,
+						},
+					},
+				})
 				vim.lsp.enable("vtsls")
 			end
 			vim.lsp.log.set_level(vim.log.levels.ERROR)
