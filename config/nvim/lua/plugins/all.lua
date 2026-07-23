@@ -100,4 +100,8 @@ return {
 			)
 		end,
 	},
+	{
+		"mason-org/mason.nvim",
+		opts = {},
+	},
 }
