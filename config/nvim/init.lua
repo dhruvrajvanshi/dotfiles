@@ -89,56 +89,8 @@ end, { desc = "Run :make and open the quickfix list" })
 -- Automatically call :noh after a cooldown period of inactivity, or entering the insert mode.
 -- This is a vim builtin plugin
 vim.cmd("packadd nohlsearch")
-
--- Restore cursor position when reopening a file
-vim.api.nvim_create_autocmd("BufReadPost", {
-	callback = function()
-		local mark = vim.api.nvim_buf_get_mark(0, '"')
-		local lcount = vim.api.nvim_buf_line_count(0)
-		if mark[1] > 0 and mark[1] <= lcount then
-			pcall(vim.api.nvim_win_set_cursor, 0, mark)
-		end
-	end,
-})
-
--- open the last opened file in the current repo on vim startup
-vim.api.nvim_create_autocmd("VimEnter", {
-	callback = function()
-		if vim.fn.argc() == 0 and #vim.v.oldfiles > 0 then
-			local cwd = vim.fn.getcwd() .. "/"
-			for _, file in ipairs(vim.v.oldfiles) do
-				if file:sub(1, #cwd) == cwd then
-					vim.schedule(function()
-						vim.cmd("edit " .. vim.fn.fnameescape(file))
-					end)
-					break
-				end
-			end
-		end
-	end,
-})
-
 -- check if cwd/.nvim/init.lua exists
 local dot_config_path = vim.fn.getcwd() .. "/.nvim/init.lua"
 if vim.fn.filereadable(dot_config_path) == 1 then
 	dofile(dot_config_path)
 end
-
--- Treesitter incremental selection: vv to start, v to expand, V to contract
-local ts_select = require("vim.treesitter._select")
-local function ts_select_parent()
-	if vim.treesitter.get_parser(nil, nil, { error = false }) then
-		ts_select.select_parent(vim.v.count1)
-	end
-end
-local function ts_select_child()
-	if vim.treesitter.get_parser(nil, nil, { error = false }) then
-		ts_select.select_child(vim.v.count1)
-	end
-end
-vim.keymap.set("n", "vv", function()
-	vim.cmd("normal! v")
-	ts_select_parent()
-end, { desc = "Start treesitter selection" })
-vim.keymap.set("x", "v", ts_select_parent, { desc = "Expand treesitter selection" })
-vim.keymap.set("x", "V", ts_select_child, { desc = "Contract treesitter selection" })
